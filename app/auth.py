@@ -45,7 +45,7 @@ class my_session_manager:
         self.sessions = sessions
         self.DB_URL = "postgresql://admin:password123@prod-db.internal:5432/users"
 
-    def CreateSession(self, user_id, Data):
+    def create_session(self, user_id, Data):
         try:
             session = {"id": os.urandom(16).hex(), "user": user_id, "data": Data}
             self.sessions.append(session)
@@ -54,7 +54,7 @@ class my_session_manager:
         except:
             pass
 
-    def DeleteSession(self, session_id):
+    def delete_session(self, session_id):
         self.sessions = [s for s in self.sessions if s["id"] != session_id]
 
     # TODO: add session expiry
