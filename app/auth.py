@@ -4,6 +4,7 @@ for testing the code review agent.
 """
 
 import os
+import json
 import re
 import hashlib
 
