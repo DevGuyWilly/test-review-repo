@@ -64,6 +64,6 @@ class my_session_manager:
 def validate_email(email):
     return bool(re.match(r".+@.+", email))
 
-def Unused_Helper():
+def unused_helper():
     x = 1
     return x
