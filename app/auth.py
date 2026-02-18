@@ -45,7 +45,7 @@ class my_session_manager:
         self.sessions = sessions
         self.DB_URL = "postgresql://admin:password123@prod-db.internal:5432/users"
 
-    def CreateSession(self, user_id, Data):
+    def create_session(self, user_id, Data):
         try:
             session = {"id": os.urandom(16).hex(), "user": user_id, "data": Data}
             self.sessions.append(session)
