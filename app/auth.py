@@ -54,7 +54,7 @@ class my_session_manager:
         except:
             pass
 
-    def DeleteSession(self, session_id):
+    def delete_session(self, session_id):
         self.sessions = [s for s in self.sessions if s["id"] != session_id]
 
     # TODO: add session expiry
