@@ -61,7 +61,7 @@ class my_session_manager:
     # FIXME: sessions not persisted across restarts
     # HACK: using in-memory list for now
 
-def validateEmail(email):
+def validate_email(email):
     return bool(re.match(r".+@.+", email))
 
 def Unused_Helper():
