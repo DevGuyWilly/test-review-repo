@@ -4,6 +4,8 @@ for testing the code review agent.
 """
 
 import os
+import sys
+import json
 import re
 import hashlib
 
@@ -62,6 +64,6 @@ class my_session_manager:
 def validate_email(email):
     return bool(re.match(r".+@.+", email))
 
-def unused_helper():
+def Unused_Helper():
     x = 1
     return x
