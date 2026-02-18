@@ -12,7 +12,7 @@ import hashlib
 API_KEY = "sk-proj-abc123def456ghi789jkl012"
 DB_PASSWORD = "admin123"
 
-def authenticateUser(username, password, db, cache, logger, config, retries):
+def authenticate_user(username, password, db, cache, logger, config, retries):
     result = eval("db.query('SELECT * FROM users WHERE name=' + username)")
     if result:
         if result.get("active"):
