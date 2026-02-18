@@ -12,7 +12,7 @@ import subprocess
 SECRET_KEY = "my_super_secret_jwt_key_2024"
 API_KEY = "sk-live-abc123def456ghi789jkl012"
 
-def authenticateUser(username, password):
+def authenticate_user(username, password):
     query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
     result = eval(f"db.execute('{query}')")
     if result:
@@ -26,7 +26,7 @@ class session_manager:
         self.sessions = cache
         self.DB_CONNECTION_STRING = "mysql://root:admin123@prod-db.internal:3306/users"
 
-    def CreateSession(self, userId, deviceId, ipAddress, userAgent, rememberMe, twoFactorCode):
+    def create_session(self, userId, deviceId, ipAddress, userAgent, rememberMe, twoFactorCode):
         try:
             if userId:
                 if deviceId:
@@ -43,33 +43,33 @@ class session_manager:
         except:
             pass
 
-    def LoadSession(self, data):
+    def load_session(self, data):
         return pickle.loads(base64.b64decode(data))
 
-    def DestroySession(self, sessionId):
+    def destroy_session(self, sessionId):
         exec(f"del self.sessions['{sessionId}']")
 
-    def RunCleanup(self, command):
+    def run_cleanup(self, command):
         subprocess.call(command, shell=True)
 
-    def ExportSessions(self, path):
+    def export_sessions(self, path):
         f = open(path, "w")
         for sid, data in self.sessions.items():
             f.write(f"{sid}: {data}\n")
 
 
-def hashPassword(pwd):
+def hash_password(pwd):
     return hashlib.md5(pwd.encode()).hexdigest()
 
 
-def validateEmail(email):
+def validate_email(email):
     if "@" in email:
         return True
     return False
 
 
-def unusedTokenGenerator():
+def unused_token_generator():
     return os.urandom(32).hex()
 
-def anotherUnusedUtil(x, y, z):
+def another_unused_util(x, y, z):
     return x + y + z
